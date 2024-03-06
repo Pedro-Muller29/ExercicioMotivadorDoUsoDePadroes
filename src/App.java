@@ -1,7 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
 
-        Carro basico = new Carro("Basico", TipoCombustivel.GASOLINA, 10, 55);
+        Carro basico = new Carro(ModeloCarro.ESPORTIVO, TipoCombustivel.GASOLINA, 6, 45);
 
         System.out.println("Tipos de veiculos:");
         System.out.println(basico);

@@ -1,16 +1,16 @@
 public class Carro {
 
-    private String modelo;
+    private ModeloCarro modelo;
     private Motor motor;
     private TanqueCombustivel tanque;
 
-    public Carro(String modelo, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
+    public Carro(ModeloCarro modelo, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
         this.modelo = modelo;
         motor = new Motor(tipoCombustivel, consumoMotor);
         tanque = new TanqueCombustivel(tipoCombustivel, capacidadeTanque);
     }
 
-    public String getModelo() {
+    public ModeloCarro getModelo() {
         return modelo;
     }
 
