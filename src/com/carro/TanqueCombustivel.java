@@ -1,3 +1,5 @@
+package com.carro;
+
 public class TanqueCombustivel {
 
     private TipoCombustivel tipoCombustivel;

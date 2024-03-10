@@ -1,7 +1,12 @@
+import com.carro.Carro;
+import com.carro.FactoryCarro;
+import com.carro.ModeloCarro;
+import com.carro.TipoCombustivel;
+
 public class App {
     public static void main(String[] args) throws Exception {
 
-        Carro basico = new Carro(ModeloCarro.ESPORTIVO, TipoCombustivel.GASOLINA, 6, 45);
+        Carro basico = FactoryCarro.getCarro(ModeloCarro.BASICO);
 
         System.out.println("Tipos de veiculos:");
         System.out.println(basico);

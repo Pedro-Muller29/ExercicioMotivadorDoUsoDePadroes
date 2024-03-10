@@ -1,10 +1,12 @@
+package com.carro;
+
 public class Carro {
 
     private ModeloCarro modelo;
     private Motor motor;
     private TanqueCombustivel tanque;
 
-    public Carro(ModeloCarro modelo, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
+    Carro(ModeloCarro modelo, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
         this.modelo = modelo;
         motor = new Motor(tipoCombustivel, consumoMotor);
         tanque = new TanqueCombustivel(tipoCombustivel, capacidadeTanque);
