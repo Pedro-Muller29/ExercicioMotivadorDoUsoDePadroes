@@ -30,6 +30,11 @@ public class TanqueCombustivelFlex implements TanqueCombustivel {
     }
 
     @Override
+    public int getCapacidadeDisponivel() {
+        return capacidade - alcoolDisponivel - gasolinaDisponivel;
+    }
+
+    @Override
     public boolean abastece(TipoCombustivel tipoCombustivel, int quantidade) {
         // Garante que o combustível é Alcool ou Gasolina
         if (tipoCombustivel == TipoCombustivel.ALCOOL || tipoCombustivel == TipoCombustivel.GASOLINA) {

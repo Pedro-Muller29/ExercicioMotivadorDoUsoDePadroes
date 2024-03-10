@@ -29,6 +29,10 @@ class TanqueCombustivelComum implements TanqueCombustivel {
         return combustivelDisponivel;
     }
 
+    public int getCapacidadeDisponivel() {
+        return capacidade - combustivelDisponivel;
+    }
+
     // Retorna false se o tipo de combustivel for incompativel ou se a quantidade
     // for maior que a capacidade livre
     public boolean abastece(TipoCombustivel tipoCombustivel, int quantidade) {
