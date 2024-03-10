@@ -36,8 +36,8 @@ public class Carro {
         }
     }
 
-    // Retorna a distancia que consegue viajar com o combustivel remanescente
-    public int verificaSePodeViajar(int distancia) {
+    // True se consegue viajar, e false caso contrario
+    public boolean verificaSePodeViajar(int distancia) {
         // Infelizmente aqui não tem jeito, tive que fazer uma checagem manual do tipo do motor
         if (motor.getTipoMotor() == TipoCombustivel.FLEX) {
             int combustivelAlcool = tanque.getCombustivelDisponivel(TipoCombustivel.ALCOOL);
@@ -47,10 +47,10 @@ public class Carro {
                 int consumoAlcool = motor.getConsumo(TipoCombustivel.ALCOOL);
                 int consumoGasolina = motor.getConsumo(TipoCombustivel.GASOLINA);
 
-                return Math.min((consumoAlcool * combustivelAlcool) + (consumoGasolina * combustivelGasolina), distancia);
+                return (consumoAlcool * combustivelAlcool) + (consumoGasolina * combustivelGasolina) >= distancia;
             } catch (Exception e) {
                 e.printStackTrace();
-                return 0;
+                return false;
             }            
         } 
         // Caso o motor não seja FLEX, o procedimento é o mesmo
@@ -58,20 +58,20 @@ public class Carro {
             try {
                 int combustivelNecessario = motor.combustivelNecessario(distancia, motor.getTipoMotor());
                 if (tanque.getCombustivelDisponivel(motor.getTipoMotor()) >= combustivelNecessario) {
-                    return distancia;
+                    return true;
                 } else {
-                    return tanque.getCombustivelDisponivel(motor.getTipoMotor()) * motor.getConsumo(motor.getTipoMotor());
+                    return false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                return 0;
+                return false;
             }
         }
     }
 
     // Retorna true se conseguiu viajar
     public boolean viaja(int distancia) {
-        if (verificaSePodeViajar(distancia) >= distancia) {
+        if (verificaSePodeViajar(distancia)) {
             // Mais uma vez fui obrigado a realizar checagem manual
             if (motor.getTipoMotor() == TipoCombustivel.FLEX) {
                 try {

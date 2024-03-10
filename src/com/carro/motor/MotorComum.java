@@ -11,6 +11,7 @@ class MotorComum implements Motor {
     public MotorComum(TipoCombustivel tipoMotor, int consumo) {
         this.tipoMotor = tipoMotor;
         this.consumo = consumo;
+        this.quilometragem = 0;
     }
 
     public int getConsumo(TipoCombustivel tipoCombustivel) throws Exception {

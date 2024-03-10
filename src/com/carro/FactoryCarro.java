@@ -24,11 +24,19 @@ public class FactoryCarro {
              TipoCombustivel.FLEX,
               FactoryMotor.geMotorComum(TipoCombustivel.GASOLINA, 8),
                55);
-        } else if (modelo == ModeloCarro.SUVFlex) {
+        } else if (modelo == ModeloCarro.SUVFLEX) {
             return new Carro(modelo,
              TipoCombustivel.FLEX,
               FactoryMotor.getMotorFlex(6, 8),
                65);
+        } else if (modelo == ModeloCarro.ECONO) {
+            return new Carro(modelo,
+             TipoCombustivel.GASOLINA,
+             FactoryMotor.getMotorEconomico(TipoCombustivel.GASOLINA,
+              20,
+               10,
+                5000),
+                 55);
         }
         return null;
     }

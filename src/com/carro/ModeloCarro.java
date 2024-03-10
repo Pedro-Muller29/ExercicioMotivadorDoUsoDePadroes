@@ -1,5 +1,5 @@
 package com.carro;
 
 public enum ModeloCarro {
-    BASICO, ESPORTIVO, UTILITARIO, SUV, SUVFlex;
+    BASICO, ESPORTIVO, UTILITARIO, SUV, SUVFLEX, ECONO;
 }

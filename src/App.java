@@ -6,19 +6,21 @@ import com.carro.TipoCombustivel;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        Carro suv = FactoryCarro.getCarro(ModeloCarro.SUVFlex);
+        Carro economico = FactoryCarro.getCarro(ModeloCarro.ECONO);
 
         System.out.println("Tipos de veiculos:");
-        System.out.println(suv);
+        System.out.println(economico);
 
-        System.out.println("\n\n----------------");
-        System.out.println("\nAbastencendo carro suv com gasolina");
-        suv.abastece(TipoCombustivel.GASOLINA, 15);
-        suv.abastece(TipoCombustivel.ALCOOL, 6);
-        System.out.println(suv);
-        System.out.println("\nViajando com o carro suv");
-        suv.viaja(250);
-        suv.viaja(150);
-        System.out.println(suv);
+        // Só para demonstrar o funcionamento do Econo
+        for (int i = 0; i < 101; i ++) {
+            System.out.println("\n\n----------------");
+            System.out.println("\nAbastencendo carro economico com gasolina");
+            economico.abastece(TipoCombustivel.GASOLINA, 55);
+            System.out.println(economico);
+
+            System.out.println("\nViajando com o carro economico");
+            economico.viaja(561);
+            System.out.println(economico);
+        }
     }
 }
