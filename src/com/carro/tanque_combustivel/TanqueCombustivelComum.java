@@ -1,12 +1,14 @@
-package com.carro;
+package com.carro.tanque_combustivel;
 
-public class TanqueCombustivel {
+import com.carro.TipoCombustivel;
+
+class TanqueCombustivelComum implements TanqueCombustivel {
 
     private TipoCombustivel tipoCombustivel;
     private int capacidade;
     private int combustivelDisponivel;
 
-    public TanqueCombustivel(TipoCombustivel tipoCombustivel, int capacidade) {
+    TanqueCombustivelComum(TipoCombustivel tipoCombustivel, int capacidade) {
         this.tipoCombustivel = tipoCombustivel;
         this.capacidade = capacidade;
         this.combustivelDisponivel = 0;
@@ -20,7 +22,10 @@ public class TanqueCombustivel {
         return capacidade;
     }
 
-    public int getCombustivelDisponivel() {
+    public int getCombustivelDisponivel(TipoCombustivel tipoCombustivel) {
+        if (tipoCombustivel != this.tipoCombustivel) {
+            return 0;
+        }
         return combustivelDisponivel;
     }
 
@@ -28,15 +33,9 @@ public class TanqueCombustivel {
     // for maior que a capacidade livre
     public boolean abastece(TipoCombustivel tipoCombustivel, int quantidade) {
         if (tipoCombustivel != this.tipoCombustivel) {
-            if (this.tipoCombustivel == TipoCombustivel.FLEX) {
-                if (!(tipoCombustivel == TipoCombustivel.GASOLINA || tipoCombustivel == TipoCombustivel.ALCOOL)) {
-                    return false;
-                }
-            } else {
-                return false;
-            }
+            return false;
         }
-        if (getCombustivelDisponivel() + quantidade > getCapacidade()) {
+        if (getCombustivelDisponivel(this.tipoCombustivel) + quantidade > getCapacidade()) {
             return false;
         } else {
             combustivelDisponivel += quantidade;
@@ -44,8 +43,11 @@ public class TanqueCombustivel {
         }
     }
 
-    public boolean gasta(int quantidade) {
-        if (getCombustivelDisponivel() - quantidade < 0) {
+    public boolean gasta(int quantidade, TipoCombustivel tipoCombustivel) {
+        if (tipoCombustivel != this.tipoCombustivel) {
+            return false;
+        }
+        if (getCombustivelDisponivel(this.tipoCombustivel) - quantidade < 0) {
             return false;
         } else {
             combustivelDisponivel -= quantidade;
