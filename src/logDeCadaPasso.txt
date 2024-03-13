@@ -1,0 +1,21 @@
+Passo 1 - Foi criado um enum como os modelos de carro,
+ limitando assim quais podiam ser usados.
+
+Passo 2 - Aqui, por uma questão de interpretação, 
+passei a entender que SEMPRE que um carro é da categoria 'Esportivo', 
+ele deve ser movido a gasolina, consumir 6 km/l e ter o tanque com capacidade
+ de 45l. Por isso, fiz um Factory e privei o init do carro em si.
+
+Passo 3 - Aqui, por precisar que o tanque possa 
+receber 2 tipos diferentes de combustível, 
+fiz uma interface de Tanque e implementei duas classes,
+ o TanqueCombustivelComum e o TanqueCombustivelFlex,
+e fiz um Factory, só expondo no package a interface e não as classes.
+
+Passo 4 - Como eu já tinha o tanque FLEX, foi só fazer o mesmo procedimento com o motor:
+criar uma interface, criar 2 implementacoes e fazer um factory criador de intancias,
+expondo no package só a interface e o factory. Também acabei implementando por completo
+ (sem adotar a simplicidade de assumir o último combustível)
+
+Passo 5 - Como eu já tinha feito a interface do motor, foi só criar uma nova classe e 
+passar uma instancia dela no factory do carro economico.
